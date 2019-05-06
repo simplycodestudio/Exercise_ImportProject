@@ -13,7 +13,7 @@ CREATE TABLE my_base.CUSTOMERS (
     ID bigint(100) not null 
     ,NAME varchar(100) not null default '' 
     ,SURNAME varchar(100) not null default '' 
-    ,AGE int
+    ,AGE int default null
     ,CITY varchar(100) not null default '' 
     ,PRIMARY KEY(ID)
 );
