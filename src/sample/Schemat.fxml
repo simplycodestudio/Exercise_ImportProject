@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<TabPane fx:id="tabPaneMain" minHeight="600.0" minWidth="1000.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SchematController">
+    <tabs>
+        <Tab fx:id="tabConnectionDatabase" text="Zaloguj się">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label text="Path to database " />
+                              <TextField fx:id="textFieldPathToDb" minWidth="800.0" />
+                           </children>
+                        </HBox>
+                        <GridPane alignment="CENTER" maxHeight="400.0" maxWidth="400.0">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="20.0" minHeight="20.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Login " GridPane.rowIndex="1" />
+                              <Label text="Hasło" GridPane.rowIndex="2" />
+                              <TextField fx:id="textFieldLogin" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <PasswordField fx:id="passwordField" maxWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="buttonZaloguj" mnemonicParsing="false" text="Zaloguj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </content></Tab>
+        <Tab fx:id="tabFileImport" text="Zaimportuj Plik">
+            <content>
+                <BorderPane>
+                    <bottom>
+                        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                            <children>
+                                <Button fx:id="buttonImport" mnemonicParsing="false" text="Importuj" />
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" />
+                            </padding>
+                        </HBox>
+                    </bottom>
+                    <center>
+                        <GridPane BorderPane.alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="10.0" minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="31.0" minHeight="31.0" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="10.0" minHeight="10.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <TextField fx:id="textfieldImportFilePath" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Hyperlink fx:id="hyperlinkFileChoose" text="Wybierz plik" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                            </children>
+                        </GridPane>
+                    </center>
+                </BorderPane>
+            </content></Tab>
+        <Tab fx:id="tabTableViews" text="Podgląd bazy">
+            <content>
+                <SplitPane dividerPositions="0.5">
+                    <items>
+                        <TableView fx:id="tableViewCustomers" minWidth="500.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Customers">
+                                    <columns>
+                                        <TableColumn fx:id="tableColumnCustomerID" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="tableColumnCustomerName" prefWidth="75.0" text="Name" />
+                                        <TableColumn fx:id="tableColumnCustomerSurname" prefWidth="75.0" text="Surname" />
+                                        <TableColumn fx:id="tableColumnCustomerAge" prefWidth="75.0" text="Age" />
+                              <TableColumn fx:id="tableColumnCustomerCity" prefWidth="75.0" text="City" />
+                                    </columns>
+                                </TableColumn>
+                            </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                        </TableView>
+                        <TableView fx:id="tableViewContacts" minWidth="500.0">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Contacts">
+                                    <columns>
+                                        <TableColumn fx:id="tableColumnContactID" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="tableColumnContactType" prefWidth="75.0" text="Type" />
+                                        <TableColumn fx:id="tableColumnContact" prefWidth="75.0" text="Contact" />
+                                    </columns>
+                                </TableColumn>
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </items>
+                </SplitPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
